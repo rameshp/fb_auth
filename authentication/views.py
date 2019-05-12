@@ -22,6 +22,14 @@ def login_success(request):
                                 'code': code})
     response = resp.json()
     access_token = response['access_token']
+    response = requests.get("https://graph.facebook.com/oauth/access_token",
+                 params={'client_id':config['client_id'],
+                         'client_secret': config['client_secret'],
+                         'grant_type':'fb_exchange_token',
+                         'fb_exchange_token': access_token}
+                )
+    response = response.json()
+    access_token = response['access_token']
     request.session['access_token'] = access_token
     home_response = redirect('home')
     return home_response
