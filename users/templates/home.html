@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<script type="text/javascript">
+		function logout(){
+			var url = window.location.origin + '/logout';
+			window.location.replace(url);
+		}
+
+	</script>
+</head>
+<body>
+	<div style="text-align: right"> 
+		<div style="display: inline-block;">
+			<button type="button" onclick="logout()"> Logout </button>	
+		</div>
+	</div>
+	<div style="text-align: center;"> 
+		<div style="display: inline-block;">
+			<img src="https://graph.facebook.com/{{user_id}}/picture?type=large&width=200&height=200"> </img>
+		</div>
+	</div>
+	<div style="text-align: center;"> 
+		<div style="display: inline-block;">
+			<h4> Welcome back {{user_name}}. </h4>
+		</div>
+	</div>
+</body>
+</html>

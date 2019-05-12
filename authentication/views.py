@@ -9,7 +9,7 @@ config = {
     'client_id': '',
     'redirect_uri': 'http://localhost:8000/login_success',
     'client_secret': '',
-    'fb_oath_url': "https://www.facebook.com/v3.3/dialog/oauth"
+    'fb_oauth_url': "https://www.facebook.com/v3.3/dialog/oauth"
 }
 
 def login_success(request):
@@ -28,6 +28,12 @@ def login_success(request):
 
 def login(request):
     login_succ_path = 'login_success'
-    return render(request, 'fb_login.html',
-        {'client_id': config['client_id'], 'login_succ_path': login_succ_path,
-                    'fb_oath_url':config['fb_oath_url']})
+    return render(request, 'fb_login.html', {'client_id': config['client_id'], 
+                  'login_succ_path': login_succ_path,
+                  'fb_oauth_url':config['fb_oauth_url']})
+
+def logout(request):
+    session = request.session
+    del session['access_token']
+    del session['user_id']
+    return render(request, 'logout.html') 
