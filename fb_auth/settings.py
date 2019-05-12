@@ -130,3 +130,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
+
+FB_CONFIG = {
+    'redirect_uri': 'http://localhost:8000/login_success',
+    'deauth_status': 'http://localhost:8000/delete_status',
+    'oauth_url': 'https://www.facebook.com/v3.3/dialog/oauth',
+    'token_url': 'https://graph.facebook.com/oauth/access_token',
+    'secret_file_path': '/var/opt/fb_secret_settings.json'
+}

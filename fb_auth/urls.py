@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from authentication.views import (login, login_success, logout)
+from authentication.views import (login, login_success, logout,
+			delete_status, deauth_callback)
 from users.views import home
 
 urlpatterns = [
@@ -23,5 +24,7 @@ urlpatterns = [
     url(r"^login_success", login_success, name="login_success"),
     url(r"^login", login, name="login"),
     url(r"^logout", logout, name="logout"),
+    url(r"^delete_status", delete_status, name="delete_status"),
+    url(r"^deauth", deauth_callback, name="deauth_callback"),
     url(r"^$", home, name="home"),
 ]
