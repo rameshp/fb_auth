@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Load FB Login</title>
+	<script type="text/javascript">
+		function navigateToFBLogin(){
+			var login_succ_url = window.location.origin + '/{{login_succ_path}}',
+				url = '{{fb_oauth_url}}' + '?client_id={{client_id}}&redirect_uri=' + login_succ_url;
+			console.log(url);
+			window.location.replace(url);
+		}
+		navigateToFBLogin();
+	</script>
+</head>
+<body>
+</body>
+</html>
